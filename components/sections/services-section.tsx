@@ -83,25 +83,25 @@ export function ServicesSection({ caseStudyIndex = 0 }: { caseStudyIndex?: numbe
                   key={index}
                   className="flex min-w-full flex-col justify-start"
                 >
-                <h3 className="mb-6 font-sans text-lg font-normal text-foreground/80 xl:text-xl 2xl:text-2xl">
+                <h3 className="mb-6 font-sans text-lg font-normal text-foreground/80">
                   {caseStudy.company}
                 </h3>
 
-                <h2 className="mb-6 font-sans text-xl font-normal leading-tight tracking-tight text-foreground sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
+                <h2 className="mb-6 font-sans text-2xl font-normal leading-tight tracking-tight text-foreground md:text-3xl lg:text-4xl">
                   {caseStudy.headline}
                 </h2>
 
                 <div className="mb-6 space-y-4">
                   <div>
-                    <h4 className="mb-2 font-sans text-base font-semibold text-foreground xl:text-lg">Challenge</h4>
-                    <p className="text-base leading-relaxed text-foreground/80 xl:text-lg">
+                    <h4 className="mb-2 font-sans text-sm font-semibold text-foreground">Challenge</h4>
+                    <p className="text-sm leading-relaxed text-foreground/80">
                       {caseStudy.challenge}
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="mb-2 font-sans text-base font-semibold text-foreground xl:text-lg">Solution</h4>
-                    <p className="text-base leading-relaxed text-foreground/80 xl:text-lg">
+                    <h4 className="mb-2 font-sans text-sm font-semibold text-foreground">Solution</h4>
+                    <p className="text-sm leading-relaxed text-foreground/80">
                       {caseStudy.solution}
                     </p>
                   </div>
@@ -114,10 +114,10 @@ export function ServicesSection({ caseStudyIndex = 0 }: { caseStudyIndex?: numbe
                       key={statIndex}
                       className="flex flex-col items-center justify-center rounded-xl border border-foreground/20 bg-foreground/5 p-5 backdrop-blur-sm md:p-6"
                     >
-                      <div className="mb-2 font-sans text-xl font-light text-foreground sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
+                      <div className="mb-2 font-sans text-2xl font-light text-foreground md:text-3xl lg:text-4xl">
                         {stat.value}
                       </div>
-                      <div className="text-center font-sans text-xs text-foreground/70 sm:text-sm xl:text-base">
+                      <div className="text-center font-sans text-xs text-foreground/70">
                         {stat.label}
                       </div>
                     </div>
@@ -188,11 +188,11 @@ export function ServicesSection({ caseStudyIndex = 0 }: { caseStudyIndex?: numbe
 
         {/* Right Column - Logo Grid */}
         <div className="flex flex-col justify-start">
-          <h3 className="mb-6 text-center font-sans text-2xl font-normal text-foreground md:text-3xl lg:text-4xl xl:text-5xl">
+          <h3 className="mb-6 text-center font-sans text-2xl font-normal text-foreground md:text-3xl lg:text-4xl">
             We've Connected Our Clients With:
           </h3>
 
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          <div className="grid grid-cols-4 gap-4">
             {logos.map((logo, index) => (
               <LogoPlaceholder key={index} logo={logo} isVisible={isVisible} delay={index * 50} />
             ))}

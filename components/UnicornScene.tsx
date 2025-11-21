@@ -155,6 +155,11 @@ export default function UnicornScene({
       data-us-arialabel={ariaLabel}
       data-us-lazyload={lazyLoad ? "true" : ""}
     >
+      {/* Black overlay at 30% opacity */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-black/30"
+        aria-hidden="true"
+      />
       {error && <div className="text-red-500">{error}</div>}
     </div>
   );

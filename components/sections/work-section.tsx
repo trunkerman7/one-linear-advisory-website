@@ -15,11 +15,11 @@ export function WorkSection() {
       <div className="grid w-full grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-10">
         {/* Left Column - Text Content */}
         <div className="flex flex-col justify-start">
-          <h2 className="mb-5 font-sans text-xl font-normal leading-tight tracking-tight text-foreground sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
+          <h2 className="mb-5 font-sans text-2xl font-normal leading-tight tracking-tight text-foreground md:text-3xl lg:text-4xl">
             The #1 Metric We Track For Our Partners Success Is Revenue Generated
           </h2>
 
-          <div className="mb-6 space-y-3 text-base leading-relaxed text-foreground/90 xl:text-lg">
+          <div className="mb-6 space-y-3 text-sm leading-relaxed text-foreground/90">
             <p>
               Onelinear's Revenue Advisory Programme is purpose-built for SMEs, Enterprises and B2Bs seeking to expand beyond their current scope, without unnecessary risk, in the shortest time possible.
             </p>
@@ -152,10 +152,10 @@ function StatCard({
       } ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="mb-2 font-sans text-xl font-light text-foreground sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
+      <div className="mb-2 font-sans text-2xl font-light text-foreground md:text-3xl lg:text-4xl">
         {isVisible ? formatValue(displayValue) : value}
       </div>
-      <div className="text-center font-sans text-xs text-foreground/70 sm:text-sm xl:text-base">
+      <div className="text-center font-sans text-xs text-foreground/70">
         {label}
       </div>
     </div>

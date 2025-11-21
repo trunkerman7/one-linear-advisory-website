@@ -223,16 +223,16 @@ export default function Home() {
       >
         {/* Hero Section */}
         <section className="flex min-h-screen w-screen shrink-0 snap-start flex-col justify-start px-6 pb-32 pt-24 md:px-12 md:pt-24">
-          <div className="max-w-7xl">
+          <div className="max-w-4xl">
             <div className="mb-4 inline-block animate-in fade-in slide-in-from-bottom-4 rounded-full border border-foreground/20 bg-foreground/15 px-4 py-1.5 backdrop-blur-md duration-700">
-              <p className="font-mono text-xs xl:text-sm text-foreground/90">Onelinear Advisory Group</p>
+              <p className="font-mono text-xs text-foreground/90">Onelinear Advisory Group</p>
             </div>
-            <h1 className="mb-6 animate-in fade-in slide-in-from-bottom-8 font-sans text-4xl font-light leading-[1.1] tracking-tight text-foreground duration-1000 sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl">
+            <h1 className="mb-6 animate-in fade-in slide-in-from-bottom-8 font-sans text-6xl font-light leading-[1.1] tracking-tight text-foreground duration-1000 md:text-7xl lg:text-8xl">
               <span className="text-balance">
                 Demand Generation With An Unfair Advantage.
               </span>
             </h1>
-            <p className="mb-8 animate-in fade-in slide-in-from-bottom-4 text-base leading-relaxed text-foreground/90 duration-1000 delay-200 md:text-xl xl:text-2xl">
+            <p className="mb-8 animate-in fade-in slide-in-from-bottom-4 text-lg leading-relaxed text-foreground/90 duration-1000 delay-200 md:text-xl">
               Revenue Advisory & Demand Generation for SMEs, Enterprise and B2B.
             </p>
             <div className="flex animate-in fade-in slide-in-from-bottom-4 flex-col gap-4 duration-1000 delay-300 sm:flex-row sm:items-center">
@@ -246,7 +246,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 animate-in fade-in duration-1000 delay-500 md:bottom-8">
+          <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 animate-in fade-in duration-1000 delay-500">
             <div className="flex items-center gap-2">
               <p className="font-mono text-xs text-foreground/80">Scroll to explore</p>
               <div className="flex h-6 w-12 items-center justify-center rounded-full border border-foreground/20 bg-foreground/15 backdrop-blur-md">
@@ -265,13 +265,6 @@ export default function Home() {
       <style jsx global>{`
         div::-webkit-scrollbar {
           display: none;
-        }
-
-        /* Fix for mobile viewport height accounting for browser UI */
-        @supports (height: 100dvh) {
-          .min-h-screen {
-            min-height: 100dvh;
-          }
         }
       `}</style>
     </main>
