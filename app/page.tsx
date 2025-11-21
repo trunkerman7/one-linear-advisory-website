@@ -246,7 +246,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 animate-in fade-in duration-1000 delay-500">
+          <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 animate-in fade-in duration-1000 delay-500 md:bottom-8">
             <div className="flex items-center gap-2">
               <p className="font-mono text-xs text-foreground/80">Scroll to explore</p>
               <div className="flex h-6 w-12 items-center justify-center rounded-full border border-foreground/20 bg-foreground/15 backdrop-blur-md">
@@ -265,6 +265,13 @@ export default function Home() {
       <style jsx global>{`
         div::-webkit-scrollbar {
           display: none;
+        }
+
+        /* Fix for mobile viewport height accounting for browser UI */
+        @supports (height: 100dvh) {
+          .min-h-screen {
+            min-height: 100dvh;
+          }
         }
       `}</style>
     </main>
