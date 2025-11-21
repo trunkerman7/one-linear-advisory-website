@@ -80,7 +80,7 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
       ref={ref}
       className="flex min-h-screen w-screen shrink-0 snap-start flex-col items-start justify-start px-6 pb-32 pt-24 md:px-12 md:pt-24"
     >
-      <h2 className="mb-6 font-sans text-2xl font-normal leading-tight tracking-tight text-foreground md:text-3xl lg:text-4xl">
+      <h2 className="mb-6 font-sans text-2xl font-normal leading-tight tracking-tight text-foreground md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
         Our Three-Pillar Approach to Increasing Deal Flow
       </h2>
 
@@ -96,8 +96,8 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
                 : "bg-foreground/5 text-foreground/70 hover:bg-foreground/8"
             }`}
           >
-            <span className="font-sans text-xl font-light text-foreground/40">{tab.number}</span>
-            <span className="font-sans text-sm font-normal md:text-base">{tab.title}</span>
+            <span className="font-sans text-xl font-light text-foreground/40 xl:text-2xl">{tab.number}</span>
+            <span className="font-sans text-sm font-normal md:text-base xl:text-lg">{tab.title}</span>
             <svg
               className="ml-auto h-5 w-5"
               fill="none"
@@ -117,13 +117,13 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
 
       {/* Content Area */}
       <div className="w-full rounded-xl border border-foreground/20 bg-foreground/5 p-6 backdrop-blur-sm md:p-8">
-        <h3 className="mb-4 font-sans text-lg font-normal text-foreground md:text-xl">
+        <h3 className="mb-4 font-sans text-lg font-normal text-foreground md:text-xl xl:text-2xl 2xl:text-3xl">
           {content[activeTab as keyof typeof content].title}
         </h3>
 
         <div className="space-y-4">
           {content[activeTab as keyof typeof content].sections.map((section, index) => (
-            <p key={index} className="text-base leading-relaxed text-foreground/80">
+            <p key={index} className="text-base leading-relaxed text-foreground/80 xl:text-lg 2xl:text-xl">
               <span className="font-semibold text-foreground">{section.heading}</span> {section.text}
             </p>
           ))}

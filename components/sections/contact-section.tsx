@@ -65,16 +65,16 @@ export function ContactSection() {
     >
       <div className="w-full">
         <div className="grid gap-6 md:grid-cols-2 md:gap-8 items-start">
-          <div className="flex flex-col justify-start">
+          <div className="flex flex-col justify-start pr-4 md:pr-8">
             <div
               className={`mb-6 transition-all duration-700 ${
                 isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
               }`}
             >
-              <h2 className="mb-2 font-sans text-2xl font-normal leading-tight tracking-tight text-foreground md:text-3xl lg:text-4xl">
+              <h2 className="mb-2 font-sans text-2xl font-normal leading-tight tracking-tight text-foreground md:text-3xl lg:text-4xl xl:text-5xl">
                 Let's Talk About Your Business Development
               </h2>
-              <p className="font-sans text-sm text-foreground/60">/ Schedule an introductory call to see if you are a good fit for our advisory.</p>
+              <p className="font-sans text-sm text-foreground/60 md:text-base xl:text-lg">/ Schedule an introductory call to see if you are a good fit for our advisory.</p>
             </div>
 
             <div className="space-y-4 md:space-y-8">
@@ -86,10 +86,10 @@ export function ContactSection() {
                 style={{ transitionDelay: "200ms" }}
               >
                 <div className="mb-1 flex items-center gap-2">
-                  <Mail className="h-3 w-3 text-foreground" />
-                  <span className="font-sans text-xs text-foreground">Email</span>
+                  <Mail className="h-3 w-3 text-foreground xl:h-4 xl:w-4" />
+                  <span className="font-sans text-xs text-foreground xl:text-sm">Email</span>
                 </div>
-                <p className="text-base text-foreground transition-colors group-hover:text-foreground/70 md:text-2xl">
+                <p className="text-base text-foreground transition-colors group-hover:text-foreground/70 md:text-2xl xl:text-3xl">
                   hello@onelinear.com
                 </p>
               </a>
@@ -101,10 +101,10 @@ export function ContactSection() {
                 style={{ transitionDelay: "350ms" }}
               >
                 <div className="mb-1 flex items-center gap-2">
-                  <MapPin className="h-3 w-3 text-foreground" />
-                  <span className="font-sans text-xs text-foreground">Location</span>
+                  <MapPin className="h-3 w-3 text-foreground xl:h-4 xl:w-4" />
+                  <span className="font-sans text-xs text-foreground xl:text-sm">Location</span>
                 </div>
-                <p className="text-base text-foreground md:text-2xl">London, UK</p>
+                <p className="text-base text-foreground md:text-2xl xl:text-3xl">London, UK</p>
               </div>
             </div>
           </div>
