@@ -8,48 +8,68 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
   const [activeTab, setActiveTab] = useState(0)
 
   const tabs = [
-    { number: "1", title: "Solving For Buyer Segment" },
-    { number: "2", title: "Solving For Messaging" },
-    { number: "4", title: "Solving For Deal Closure" },
+    { number: "1", title: "Intent Intelligence Engine™" },
+    { number: "2", title: "Sovereign Deal Infrastructure" },
+    { number: "3", title: "Deal Velocity Protocol" },
   ]
 
   const content = {
     0: {
-      title: "Solving For Buyer Segment",
+      title: "Intent Intelligence Engine™",
       sections: [
         {
-          heading: "Material Refinement:",
-          text: "Sharpening your value proposition and sales assets from pitch decks to outreach copy to ensure they land with your target decision-makers.",
+          heading: "What:",
+          text: "A sector-specific intelligence system that maps your ICP, past deal wins, procurement triggers, and real-time market intent signals to identify buyers who are already primed for your solution.",
         },
         {
-          heading: "Buyer Outreach:",
-          text: "Executing data-driven multi-channel campaigns (email, LinkedIn, calls) to reach the exact executives who control budgets and buying authority.",
+          heading: "Why:",
+          text: "Executives don’t respond to cold pitches — they respond to aligned timing and relevance. We eliminate 90% of wasted conversations by targeting only where budget, interest, and mandates already exist.",
         },
         {
-          heading: "Strategic Presentations:",
-          text: "Driving qualified conversations and setting the stage for sales meetings that articulate your value clearly to enterprise prospects.",
-        },
-        {
-          heading: "Pipeline Management:",
-          text: "Tracking responses, managing follow-ups, and ensuring prospects have the clarity and confidence to progress through the sales cycle.",
+          heading: "How:",
+          text: "Proprietary scraping, mandate tracking, vertical research, and pattern-matching across past deals + live market signals to surface true enterprise buying opportunities.",
         },
       ],
     },
     1: {
-      title: "Solving For Messaging",
+      title: "Sovereign Deal Infrastructure",
       sections: [
         {
-          heading: "Content Strategy:",
-          text: "Developing compelling messaging that resonates with your target audience and communicates your value proposition effectively.",
+          heading: "What:",
+          text: "A fully isolated GTM architecture (subdomains, mail servers, authentication, warming, reputation layers) that runs separate from your main org.",
+        },
+        {
+          heading: "Why:",
+          text: "Enterprise outreach requires clean deliverability and high-trust sending patterns. Most agencies tank your domain reputation. We protect yours completely — and run a high-performance outbound engine on ours.",
+        },
+        {
+          heading: "How:",
+          text: "Private infra, deliverability engineering, enterprise authentication, multi-channel routing (email, LinkedIn, SMS, calls) — all built and maintained by us.",
+        },
+        {
+          heading: "Result:",
+          text: "Your team gets predictable deal flow with zero operational risk to your main domain.",
         },
       ],
     },
     2: {
-      title: "Solving For Deal Closure",
+      title: "Deal Velocity Protocol",
       sections: [
         {
-          heading: "Sales Enablement:",
-          text: "Providing your team with the tools and resources needed to close deals effectively and efficiently.",
+          heading: "What:",
+          text: "A full-cycle system that accelerates deals from \"intro call\" to \"board-level decision,\" including message refinement, prep alignment, follow-up orchestration, and materials transfer.",
+        },
+        {
+          heading: "Why:",
+          text: "Most outbound agencies stop at \"meeting booked.\" Enterprise deals die in the follow-up. We operate inside the cycle — ensuring momentum and cutting dead time.",
+        },
+        {
+          heading: "How:",
+          text: "We refine your executive assets, tailor first-call framing, coordinate next steps, and manage all communication timing based on actual corporate decision workflows.",
+        },
+        {
+          heading: "Outcome:",
+          text: "Deals move faster, close at higher rates, and never stall from silence or misalignment.",
         },
       ],
     },
@@ -103,14 +123,9 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
 
         <div className="space-y-4">
           {content[activeTab as keyof typeof content].sections.map((section, index) => (
-            <div key={index}>
-              <h4 className="mb-1 font-sans text-sm font-semibold text-foreground">
-                {section.heading}
-              </h4>
-              <p className="text-sm leading-relaxed text-foreground/80">
-                {section.text}
-              </p>
-            </div>
+            <p key={index} className="text-base leading-relaxed text-foreground/80">
+              <span className="font-semibold text-foreground">{section.heading}</span> {section.text}
+            </p>
           ))}
         </div>
       </div>

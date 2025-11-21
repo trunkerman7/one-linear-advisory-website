@@ -34,23 +34,23 @@ export function ServicesSection({ caseStudyIndex = 0 }: { caseStudyIndex?: numbe
       ],
     },
     {
-      company: "TechVentures.",
-      headline: "$8M ARR achieved in first year",
-      challenge: "New product launch struggled to gain traction with enterprise clients due to unclear positioning and limited outreach capabilities.",
-      solution: "Developed comprehensive go-to-market strategy, refined messaging framework, and executed targeted campaigns reaching C-level decision makers across Fortune 500 companies.",
+      company: "Midbridge.",
+      headline: "$60M in pipeline value under 30 days",
+      challenge: "Calgary-based family office needed to connect with high-quality investment opportunities across multiple sectors.",
+      solution: "Connected Midbridge with executives at 10+ companies generating between $1M and $60M+ in annual revenue. The campaign unlocked $60M+ in live deal flow across tech, entertainment, and DevOps.",
       stats: [
-        { value: "$8M", label: "ARR in first year" },
-        { value: "150+", label: "enterprise deals closed" },
+        { value: "$60M", label: "in pipeline value added" },
+        { value: "23", label: "meetings booked" },
       ],
     },
     {
-      company: "InnovateLabs.",
-      headline: "3x pipeline growth in 6 months",
+      company: "Ultimate Ivy League Guide.",
+      headline: "$2.7M Annualized Revenue In 6 Months",
       challenge: "Inconsistent lead quality and low conversion rates prevented scaling sales operations effectively.",
       solution: "Implemented data-driven lead scoring system, optimized sales funnel with targeted content, and trained sales team on consultative selling approach.",
       stats: [
-        { value: "3x", label: "pipeline growth" },
-        { value: "45%", label: "increase in conversion rate" },
+        { value: "$2.7M", label: "In New Annualized Revenue" },
+        { value: "6", label: "Months To Secure New Annualized Revenue" },
       ],
     },
   ]
