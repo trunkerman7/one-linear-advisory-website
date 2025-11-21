@@ -80,7 +80,7 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
       ref={ref}
       className="flex min-h-screen w-screen shrink-0 snap-start flex-col items-start justify-start px-6 pb-32 pt-24 md:px-12 md:pt-24"
     >
-      <h2 className="mb-6 font-sans text-2xl font-normal leading-tight tracking-tight text-foreground md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
+      <h2 className="mb-6 font-sans text-xl font-normal leading-tight tracking-tight text-foreground sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
         Our Three-Pillar Approach to Increasing Deal Flow
       </h2>
 

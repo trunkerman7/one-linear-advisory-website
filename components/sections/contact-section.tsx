@@ -71,7 +71,7 @@ export function ContactSection() {
                 isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
               }`}
             >
-              <h2 className="mb-2 font-sans text-2xl font-normal leading-tight tracking-tight text-foreground md:text-3xl lg:text-4xl xl:text-5xl">
+              <h2 className="mb-2 font-sans text-xl font-normal leading-tight tracking-tight text-foreground sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
                 Let's Talk About Your Business Development
               </h2>
               <p className="font-sans text-sm text-foreground/60 md:text-base xl:text-lg">/ Schedule an introductory call to see if you are a good fit for our advisory.</p>
@@ -116,7 +116,7 @@ export function ContactSection() {
             }`}
             style={{ transitionDelay: "400ms" }}
           >
-            <div className="h-[600px] w-[calc(100%+160px)] -ml-[160px] overflow-hidden rounded-xl bg-transparent backdrop-blur-sm md:h-[650px]">
+            <div className="h-[600px] w-full overflow-hidden rounded-xl bg-transparent backdrop-blur-sm md:h-[650px] md:w-[calc(100%+160px)] md:-ml-[160px]">
               <div id="my-cal-inline-intro-call" className="h-full w-full" />
             </div>
           </div>
