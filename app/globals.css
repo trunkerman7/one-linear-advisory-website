@@ -126,7 +126,6 @@
 
   [data-scroll-container] {
     scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     transform: translateZ(0);
     backface-visibility: hidden;
@@ -135,6 +134,20 @@
 
   [data-scroll-container]::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Mobile: vertical scroll without snapping */
+  @media (max-width: 767px) {
+    [data-scroll-container] {
+      scroll-snap-type: none;
+    }
+  }
+
+  /* Desktop: horizontal scroll with x-axis snap */
+  @media (min-width: 768px) {
+    [data-scroll-container] {
+      scroll-snap-type: x mandatory;
+    }
   }
 
   section {

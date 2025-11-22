@@ -13,6 +13,7 @@ export default function Home() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [currentSection, setCurrentSection] = useState(0)
   const [isLoaded, setIsLoaded] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const touchStartY = useRef(0)
   const touchStartX = useRef(0)
   const shaderContainerRef = useRef<HTMLDivElement>(null)
@@ -29,18 +30,43 @@ export default function Home() {
     }
   }, [])
 
+  // Detect if we're on mobile (below md breakpoint = 768px)
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   const scrollToSection = (index: number) => {
     if (scrollContainerRef.current) {
-      const sectionWidth = scrollContainerRef.current.offsetWidth
-      scrollContainerRef.current.scrollTo({
-        left: sectionWidth * index,
-        behavior: "smooth",
-      })
+      if (isMobile) {
+        // Vertical scroll on mobile
+        const sectionHeight = scrollContainerRef.current.offsetHeight
+        scrollContainerRef.current.scrollTo({
+          top: sectionHeight * index,
+          behavior: "smooth",
+        })
+      } else {
+        // Horizontal scroll on desktop
+        const sectionWidth = scrollContainerRef.current.offsetWidth
+        scrollContainerRef.current.scrollTo({
+          left: sectionWidth * index,
+          behavior: "smooth",
+        })
+      }
       setCurrentSection(index)
     }
   }
 
+  // Touch handlers only for desktop horizontal scroll
   useEffect(() => {
+    if (isMobile) return // Skip touch handlers on mobile, use native scroll
+
     const handleTouchStart = (e: TouchEvent) => {
       touchStartY.current = e.touches[0].clientY
       touchStartX.current = e.touches[0].clientX
@@ -81,9 +107,12 @@ export default function Home() {
         container.removeEventListener("touchend", handleTouchEnd)
       }
     }
-  }, [currentSection])
+  }, [currentSection, isMobile])
 
+  // Wheel handler only for desktop horizontal scroll
   useEffect(() => {
+    if (isMobile) return // Skip wheel handler on mobile
+
     const handleWheel = (e: WheelEvent) => {
       if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
         e.preventDefault()
@@ -114,8 +143,9 @@ export default function Home() {
         container.removeEventListener("wheel", handleWheel)
       }
     }
-  }, [currentSection])
+  }, [currentSection, isMobile])
 
+  // Track scroll position to update current section
   useEffect(() => {
     const handleScroll = () => {
       if (scrollThrottleRef.current) return
@@ -126,12 +156,24 @@ export default function Home() {
           return
         }
 
-        const sectionWidth = scrollContainerRef.current.offsetWidth
-        const scrollLeft = scrollContainerRef.current.scrollLeft
-        const newSection = Math.round(scrollLeft / sectionWidth)
+        if (isMobile) {
+          // Vertical scroll tracking on mobile
+          const sectionHeight = scrollContainerRef.current.offsetHeight
+          const scrollTop = scrollContainerRef.current.scrollTop
+          const newSection = Math.round(scrollTop / sectionHeight)
 
-        if (newSection !== currentSection && newSection >= 0 && newSection <= 4) {
-          setCurrentSection(newSection)
+          if (newSection !== currentSection && newSection >= 0 && newSection <= 4) {
+            setCurrentSection(newSection)
+          }
+        } else {
+          // Horizontal scroll tracking on desktop
+          const sectionWidth = scrollContainerRef.current.offsetWidth
+          const scrollLeft = scrollContainerRef.current.scrollLeft
+          const newSection = Math.round(scrollLeft / sectionWidth)
+
+          if (newSection !== currentSection && newSection >= 0 && newSection <= 4) {
+            setCurrentSection(newSection)
+          }
         }
 
         scrollThrottleRef.current = undefined
@@ -151,7 +193,7 @@ export default function Home() {
         cancelAnimationFrame(scrollThrottleRef.current)
       }
     }
-  }, [currentSection])
+  }, [currentSection, isMobile])
 
   return (
     <main className="relative h-screen w-full overflow-hidden bg-background">
@@ -216,8 +258,12 @@ export default function Home() {
       <div
         ref={scrollContainerRef}
         data-scroll-container
-        className={`relative z-10 flex h-screen overflow-x-auto overflow-y-hidden snap-x snap-mandatory transition-opacity duration-700 ${
+        className={`relative z-10 h-screen transition-opacity duration-700 ${
           isLoaded ? "opacity-100" : "opacity-0"
+        } ${
+          isMobile
+            ? "flex flex-col overflow-y-auto overflow-x-hidden"
+            : "flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory"
         }`}
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
@@ -246,7 +292,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 animate-in fade-in duration-1000 delay-500">
+          <div className="fixed bottom-24 md:bottom-8 left-1/2 -translate-x-1/2 z-50 animate-in fade-in duration-1000 delay-500">
             <div className="flex items-center gap-2">
               <p className="font-mono text-xs text-foreground/80">Scroll to explore</p>
               <div className="flex h-6 w-12 items-center justify-center rounded-full border border-foreground/20 bg-foreground/15 backdrop-blur-md">

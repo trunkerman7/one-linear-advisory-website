@@ -13,8 +13,8 @@ export function WorkSection() {
       className="flex min-h-screen w-screen shrink-0 snap-start items-start px-6 pb-32 pt-24 md:px-12 md:pt-24"
     >
       <div className="grid w-full grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-10">
-        {/* Left Column - Text Content */}
-        <div className="flex flex-col justify-start">
+        {/* Left Column - Text Content (order-2 on mobile, order-1 on desktop) */}
+        <div className="flex flex-col justify-start order-2 lg:order-1">
           <h2 className="mb-5 font-sans text-2xl font-normal leading-tight tracking-tight text-foreground md:text-3xl lg:text-4xl">
             The #1 Metric We Track For Our Partners Success Is Revenue Generated
           </h2>
@@ -46,8 +46,8 @@ export function WorkSection() {
           </MagneticButton>
         </div>
 
-        {/* Right Column - Stats Cards */}
-        <div className="grid grid-cols-2 gap-4">
+        {/* Right Column - Stats Cards (order-1 on mobile, order-2 on desktop) */}
+        <div className="grid grid-cols-2 gap-4 order-1 lg:order-2">
           <StatCard
             value="$8M+"
             label="Verified Revenue In The Past 12 Months"

@@ -69,8 +69,8 @@ export function ServicesSection({ caseStudyIndex = 0 }: { caseStudyIndex?: numbe
       className="flex min-h-screen w-screen shrink-0 snap-start items-start px-6 pb-32 pt-24 md:px-12 md:pt-24"
     >
       <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">
-        {/* Left Column - Horizontally Sliding Case Studies */}
-        <div className="flex flex-col">
+        {/* Left Column - Horizontally Sliding Case Studies (order-2 on mobile, order-1 on desktop) */}
+        <div className="flex flex-col order-2 lg:order-1">
           <div className="relative overflow-hidden">
             <div
               className="flex transition-transform duration-700 ease-in-out"
@@ -186,8 +186,8 @@ export function ServicesSection({ caseStudyIndex = 0 }: { caseStudyIndex?: numbe
         </div>
       </div>
 
-        {/* Right Column - Logo Grid */}
-        <div className="flex flex-col justify-start">
+        {/* Right Column - Logo Grid (order-1 on mobile, order-2 on desktop) */}
+        <div className="flex flex-col justify-start order-1 lg:order-2">
           <h3 className="mb-6 text-center font-sans text-2xl font-normal text-foreground md:text-3xl lg:text-4xl">
             We've Connected Our Clients With:
           </h3>

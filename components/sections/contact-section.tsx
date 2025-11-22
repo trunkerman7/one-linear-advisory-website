@@ -116,7 +116,7 @@ export function ContactSection() {
             }`}
             style={{ transitionDelay: "400ms" }}
           >
-            <div className="h-[600px] w-[calc(100%+160px)] -ml-[160px] overflow-hidden rounded-xl bg-transparent backdrop-blur-sm md:h-[650px]">
+            <div className="h-[600px] w-full md:w-[calc(100%+160px)] md:-ml-[160px] overflow-hidden rounded-xl bg-transparent backdrop-blur-sm md:h-[650px]">
               <div id="my-cal-inline-intro-call" className="h-full w-full" />
             </div>
           </div>
