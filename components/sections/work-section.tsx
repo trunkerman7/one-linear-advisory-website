@@ -4,7 +4,7 @@ import { useReveal } from "@/hooks/use-reveal"
 import { MagneticButton } from "@/components/magnetic-button"
 import { useEffect, useState, useRef } from "react"
 
-export function WorkSection() {
+export function WorkSection({ scrollToSection }: { scrollToSection?: (index: number) => void }) {
   const { ref, isVisible } = useReveal(0.3)
 
   return (
@@ -41,6 +41,7 @@ export function WorkSection() {
             size="lg"
             variant="primary"
             className="self-start"
+            onClick={() => scrollToSection?.(4)}
           >
             Book a Meeting
           </MagneticButton>

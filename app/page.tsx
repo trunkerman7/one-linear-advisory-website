@@ -45,12 +45,12 @@ export default function Home() {
   const scrollToSection = (index: number) => {
     if (scrollContainerRef.current) {
       if (isMobile) {
-        // Vertical scroll on mobile
-        const sectionHeight = scrollContainerRef.current.offsetHeight
-        scrollContainerRef.current.scrollTo({
-          top: sectionHeight * index,
-          behavior: "smooth",
-        })
+        // Vertical scroll on mobile - find the actual section element
+        const sections = scrollContainerRef.current.querySelectorAll('section')
+        const targetSection = sections[index]
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
       } else {
         // Horizontal scroll on desktop
         const sectionWidth = scrollContainerRef.current.offsetWidth
@@ -213,10 +213,9 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      <nav
-        className={`fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-6 py-6 transition-opacity duration-700 md:px-12 ${
-          isLoaded ? "opacity-100" : "opacity-0"
-        }`}
+      {/* Navigation - fixed on desktop, scrolls on mobile */}
+      <nav className="hidden md:flex fixed left-0 right-0 top-0 z-50 items-center justify-between px-6 py-6 md:px-12 transition-opacity duration-700"
+        style={{ opacity: isLoaded ? 1 : 0 }}
       >
         <button
           onClick={() => scrollToSection(0)}
@@ -230,7 +229,7 @@ export default function Home() {
 
         <div className="hidden items-center gap-8 md:flex">
           {["Track Record", "Case Studies", "Process", "Contact"].map((item, index) => {
-            const sectionIndex = index + 1 // Map to sections 1, 2, 3, 4
+            const sectionIndex = index + 1
             return (
               <button
                 key={item}
@@ -269,11 +268,49 @@ export default function Home() {
       >
         {/* Hero Section */}
         <section className="flex min-h-screen w-screen shrink-0 snap-start flex-col justify-start px-6 pb-32 pt-24 md:px-12 md:pt-24">
+          {/* Mobile navigation - scrolls with content */}
+          <nav className="md:hidden absolute left-0 right-0 top-0 z-50 flex items-center justify-between px-6 py-6">
+            <button
+              onClick={() => scrollToSection(0)}
+              className="flex items-center gap-2 transition-transform hover:scale-105"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-foreground/15 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:bg-foreground/25 p-2">
+                <img src="/logo.svg" alt="Onelinear Logo" className="h-full w-full object-contain" />
+              </div>
+              <span className="font-sans text-xl font-semibold tracking-tight text-foreground">Onelinear</span>
+            </button>
+
+            <div className="hidden items-center gap-8 md:flex">
+              {["Track Record", "Case Studies", "Process", "Contact"].map((item, index) => {
+                const sectionIndex = index + 1 // Map to sections 1, 2, 3, 4
+                return (
+                  <button
+                    key={item}
+                    onClick={() => scrollToSection(sectionIndex)}
+                    className={`group relative font-sans text-sm font-medium transition-colors ${
+                      currentSection === sectionIndex ? "text-foreground" : "text-foreground/80 hover:text-foreground"
+                    }`}
+                  >
+                    {item}
+                    <span
+                      className={`absolute -bottom-1 left-0 h-px bg-foreground transition-all duration-300 ${
+                        currentSection === sectionIndex ? "w-full" : "w-0 group-hover:w-full"
+                      }`}
+                    />
+                  </button>
+                )
+              })}
+            </div>
+
+            <MagneticButton variant="secondary" onClick={() => scrollToSection(4)}>
+              Book a Meeting
+            </MagneticButton>
+          </nav>
           <div className="max-w-4xl">
             <div className="mb-4 inline-block animate-in fade-in slide-in-from-bottom-4 rounded-full border border-foreground/20 bg-foreground/15 px-4 py-1.5 backdrop-blur-md duration-700">
               <p className="font-mono text-xs text-foreground/90">Onelinear Advisory Group</p>
             </div>
-            <h1 className="mb-6 animate-in fade-in slide-in-from-bottom-8 font-sans text-6xl font-light leading-[1.1] tracking-tight text-foreground duration-1000 md:text-7xl lg:text-8xl">
+            <h1 className="mb-6 animate-in fade-in slide-in-from-bottom-8 font-sans text-5xl font-light leading-[1.1] tracking-tight text-foreground duration-1000 md:text-7xl lg:text-8xl">
               <span className="text-balance">
                 Demand Generation With An Unfair Advantage.
               </span>
@@ -302,7 +339,7 @@ export default function Home() {
           </div>
         </section>
 
-        <WorkSection />
+        <WorkSection scrollToSection={scrollToSection} />
         <ServicesSection />
         <AboutSection scrollToSection={scrollToSection} />
         <ContactSection />

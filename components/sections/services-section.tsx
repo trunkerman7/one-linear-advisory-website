@@ -214,7 +214,7 @@ function LogoPlaceholder({
 }) {
   return (
     <div
-      className={`flex items-center justify-center rounded-xl border border-foreground/20 bg-foreground/5 p-4 backdrop-blur-sm transition-all duration-700 ${
+      className={`flex items-center justify-center rounded-xl border border-foreground/20 bg-foreground/5 p-2 md:p-4 backdrop-blur-sm transition-all duration-700 ${
         isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
       }`}
       style={{
