@@ -63,7 +63,7 @@ export function WorkSection({ scrollToSection }: { scrollToSection?: (index: num
             delay={150}
           />
           <StatCard
-            value="$100M+"
+            value="$300M+"
             label="Pipeline Value Added"
             isVisible={isVisible}
             delay={200}
